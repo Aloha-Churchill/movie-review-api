@@ -1,0 +1,45 @@
+<%- include('../partials/header')%>
+<%- include('../partials/menu')%>
+
+    <div class="container-lg" style="margin-top: 2%; margin-left: 20%; margin-right: 20%;">
+        <div class="container-fluid" style="padding: 2%;">
+            <h3 class = "text-center">Movie Reviews</h3>
+            <form class="" action="/filter_reviews" method="post">
+                <div class = "row">
+                    <div class="col-3">
+                    </div>
+                    <div class = "col-5">
+                        <input class = "form-control" type="text" name="search_title" placeholder="Enter movie text">
+                    </div>
+                    <div class = "col-1">
+                        <input class = "btn btn-primary" type="submit" name= "Filter" value = "Filter">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <table class = "table table-bordered" id="reviews_table">
+            <tr>
+                <th class = "align-bottom">Movie</th>
+                <th class = "align-bottom">Review</th>
+                <th class = "align-bottom">Review Date</th>
+            </tr>
+            <tr>
+                <%
+                if(items){
+                    items.forEach(function(item){%>
+                        <tr>
+                            <td><%-item.movie_title%></td>
+                            <td><%-item.review%></td>
+                            <td><%-item.review_date%></td>
+                        </tr>
+                    <%});
+                }%>
+            </tr>
+
+        </table>
+
+    </div>    
+</body>
+</html>
