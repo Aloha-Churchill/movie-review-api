@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser'); 
 var app = express();
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -9,6 +8,9 @@ const axios = require('axios');
 const qs = require('query-string');
 
 var pgp = require('pg-promise')();
+
+
+
 
 const dbConfig = {
   host: 'localhost',
